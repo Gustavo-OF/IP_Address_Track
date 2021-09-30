@@ -1,25 +1,50 @@
+//  Importação do React.
+import { Fragment, React } from "react";
+//  Fim importação do React.
+
+//  Importação do CSS e JS do Leaflet.
 import "leaflet/dist/leaflet.css";
 import "leaflet/dist/leaflet.js";
+//  Fim importação Leaflet.
 
-import { Fragment, React } from "react";
-import { MapContainer, TileLayer, Marker, useMap, Popup } from 'react-leaflet';
+//  Importação do Leaflet para o React.
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+//  Fim importação do Leaftlet React.
 
+//  Importação das DIV's do componente.
 import { 
   DivInfos,
   Separator,
   Info 
 } from "./ui/ShowMap";
+//  Fim importação das DIV's.
 
+//  Importação das fontes.
 import {
   H4,
   H2
 } from "./ui/ShowMap/fonts";
+//  Fim importações das fontes.
 
+//  Importação do ícone de localização.
 import {
   icon
 } from "./ui/ShowMap/icons"
+//  Fim importação do ícone de localização.
+
+/**
+ * Função do módulo para mostrar as informações trazidas pelo App.js e renderizar o mapa
+ * do Leaflet.
+ * @param {Array} props 
+ * @returns 
+ */
 
 function ShowMap(props) {
+  /**
+   * Função para atualizar o mapa após ser feita uma nova pesquisa.
+   * @param {Array} props 
+   * @returns 
+   */
   function UpdateMap(props) {
       const map = useMap();
       map.setView([props.props.lat, props.props.lng], 13);

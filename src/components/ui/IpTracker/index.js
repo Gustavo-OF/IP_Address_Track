@@ -14,6 +14,12 @@ const IpAddress = styled.div`
     margin: 0 auto;
     position: relative;
     top: 15%;
+    @media(max-width: 800px) {
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+        height: 80%;
+  }
 `
 
 export { 

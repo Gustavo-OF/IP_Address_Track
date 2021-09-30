@@ -11,6 +11,13 @@ const DivInfos = styled.div`
     border-radius: 25px;
     display: inline-flex;
     box-shadow: 0px 3px #d1cdcd;
+    @media(max-width: 800px) {
+        width: 65%;
+        flex-direction: column;
+        position: absolute;
+        height: 38%;
+        top: 30%;
+    }
 `
 const Separator = styled.div`
     border-left: 1px solid grey;
@@ -18,6 +25,9 @@ const Separator = styled.div`
     position: relative;
     left: 2%;
     top: 25%;
+    @media(max-width: 800px) {
+        display: none;
+  }
 
 `
 
@@ -28,6 +38,15 @@ const Info = styled.div`
     position: relative;
     left: 3%;
     top: 20%;
+    @media(max-width: 800px) {
+        width: 100%;
+        flex-direction: column;
+        height: 20%;
+        text-align: center;
+        margin-top: -20%;
+        margin-bottom: 22%;
+        margin-left: -3%;
+  }
 `
 
 export { 

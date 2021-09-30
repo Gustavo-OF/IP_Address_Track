@@ -2,20 +2,30 @@ import "leaflet/dist/leaflet.css";
 import "leaflet/dist/leaflet.js";
 
 import { Fragment, React } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap, Popup } from 'react-leaflet';
 
 import { 
   DivInfos,
   Separator,
   Info 
-} from "./ui/ShowMap"
+} from "./ui/ShowMap";
 
 import {
   H4,
   H2
-} from "./ui/ShowMap/fonts"
+} from "./ui/ShowMap/fonts";
+
+import {
+  icon
+} from "./ui/ShowMap/icons"
 
 function ShowMap(props) {
+  function UpdateMap(props) {
+      const map = useMap();
+      map.setView([props.props.lat, props.props.lng], 13);
+      return null;
+    }
+
   return (
     <Fragment>
     <DivInfos>
@@ -57,14 +67,12 @@ function ShowMap(props) {
     </DivInfos>
     <div>
       <MapContainer center={[props.info.location.lat, props.info.location.lng]} zoom={13} scrollWheelZoom={false} style={{width: "100%", height: "28rem", zIndex:"-1"}}>
+        <UpdateMap props={props.info.location}/>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[props.info.location.lat, props.info.location.lng]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+        <Marker icon={icon} position={[props.info.location.lat, props.info.location.lng]}>
         </Marker>
       </MapContainer>
     </div>

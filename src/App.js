@@ -49,7 +49,7 @@ function App() {
 
   return (
       <Route path="/:ip?">
-        <IpTracker ip={ip}></IpTracker>
+        <IpTracker></IpTracker>
         <ShowMap ip={ip} info={infoLocation}></ShowMap>
       </Route>
   );

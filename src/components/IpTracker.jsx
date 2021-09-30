@@ -18,11 +18,11 @@ import {
     SearchIP
 } from "./ui/IpTracker/input/buttons"
 
-import { ReactComponent as Icon } from './ui/icons/icon-arrow.svg';
+import { ReactComponent as Icon } from './ui/images/icon-arrow.svg';
 import { Link } from "react-router-dom";
 
 
-function IpTracker(props) {
+function IpTracker() {
 
     const [textValue, setTextValue] = useState();
 

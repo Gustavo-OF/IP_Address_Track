@@ -6,7 +6,7 @@ const IpAddressInput = styled.input`
     position: relative;
     top: 22%;
     left: 12%;
-    border-radius: 20px 0 0 20px;
+    border-radius: 12px 0 0 12px;
     box-shadow: none;
     border: none;
     outline: none;

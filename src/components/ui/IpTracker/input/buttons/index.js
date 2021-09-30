@@ -8,9 +8,16 @@ const SearchIP = styled.button`
     position: relative;
     top: 24%;
     left: 12%;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 13px 13px 0;
     box-shadow: none;
     border: none;
+    @media(max-width: 800px) {
+        flex-direction: column;
+        position: relative;
+        top: 23.5%;
+        width: 10%;
+        padding-left:4%;
+  }
 `
 
 export { SearchIP }

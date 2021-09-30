@@ -6,6 +6,9 @@ const H4 = styled.h4`
     color: grey;
     margin: 0 auto;
     letter-spacing: 2px;
+    @media(max-width: 800px) {
+        text-align: center;
+    }
 `
 const H2 = styled.h2`
     font-family: "Rubik";
@@ -13,6 +16,9 @@ const H2 = styled.h2`
     color: black;
     margin: 0 auto;
     letter-spacing: 2px;
-    word-break: break-all
+    word-break: break-all;
+    @media(max-width: 800px) {
+        word-break:normal;
+  }
 `
 export { H4, H2 }

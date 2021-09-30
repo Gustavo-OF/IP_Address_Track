@@ -14,6 +14,7 @@ const H4 = styled.h4`
     text-align: center;
     font-size: 29px;
     margin: 0px auto;
+    padding-bottom:3%;
 `
 
 export { H3, H4 }

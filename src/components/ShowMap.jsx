@@ -2,7 +2,6 @@ import "leaflet/dist/leaflet.css";
 import "leaflet/dist/leaflet.js";
 
 import { Fragment, React } from "react";
-import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import { 
@@ -25,7 +24,7 @@ function ShowMap(props) {
           IP ADDRESS
         </H4>
         <H2>
-          {props.ip}
+          {props.info.ip}
         </H2>
       </Info>
       <Separator/>

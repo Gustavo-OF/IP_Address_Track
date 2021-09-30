@@ -1,4 +1,4 @@
-import { React } from "react"
+import { React, useState } from "react"
 
 import {
     Background,
@@ -18,13 +18,27 @@ import {
     SearchIP
 } from "./ui/IpTracker/input/buttons"
 
-function IpTracker() {
+import { ReactComponent as Icon } from './ui/icons/icon-arrow.svg';
+import { Link } from "react-router-dom";
+
+
+function IpTracker(props) {
+
+    const [textValue, setTextValue] = useState();
+
+    
     return (
         <Background>
             <IpAddress>
                 <H3> IP Address Tracker</H3>
-                <IpAddressInput/>
-                <SearchIP><H4>{`>`}</H4></SearchIP>
+                <IpAddressInput onChange={e => setTextValue(e.target.value)}/>
+                <Link to={{pathname: `/${textValue}`}}>
+                    <SearchIP>
+                        <H4>
+                            <Icon/>
+                        </H4>
+                    </SearchIP>
+                </Link>
             </IpAddress>
         </Background>
     )

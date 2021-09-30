@@ -1,12 +1,12 @@
 import { React, useEffect, useState } from "react"
 import { Route } from "react-router";
 import {
-  BrowserRouter as Router
+  useLocation
 } from "react-router-dom"
 
 import { IpTracker } from "./components/IpTracker";
 import { ShowMap } from "./components/ShowMap";
-import { getUserIp } from "./components/useCases/getUserIP"
+import { getIp } from "./components/useCases/getUserIP"
 import { getLocationByIp } from "./components/useCases/returnLocationByIp";
 
 import { Loader } from "./components/ui/Loader"
@@ -14,21 +14,31 @@ import { Loader } from "./components/ui/Loader"
 
 function App() {
 
-  const [ip, setIP] = useState('');
   const [infoLocation, setInfoLocation] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  const location = useLocation();
+
+  let ip = "";
 
   const getData = async () => {
-    setIP(await getUserIp());
+
+    ip = await getIp(location.pathname.split("/")[1]) 
+
     setInfoLocation(await getLocationByIp(ip));
+
     if(infoLocation !== []) {
       setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    getData()
-  }, []);
+    async function fetchData() {
+      await getData();
+    }
+    fetchData();
+  }, [location]);
   
 
   if(isLoading){
@@ -36,13 +46,12 @@ function App() {
       <Loader></Loader>
     )
   }
+
   return (
-    <Router>
-      <Route path="/">
-        <IpTracker></IpTracker>
+      <Route path="/:ip?">
+        <IpTracker ip={ip}></IpTracker>
         <ShowMap ip={ip} info={infoLocation}></ShowMap>
       </Route>
-    </Router>
   );
 }
 
